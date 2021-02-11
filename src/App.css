@@ -1,5 +1,65 @@
+@font-face {
+  font-family: "ChalkStyle";
+  src: url("/src/fonts/coalhandluke/coalhandluke_trial-webfont.woff2")
+      format("woff2"),
+    url("/src/fonts/coalhandluke/coalhandlukel-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body,
+#root,
+#app {
+  left: 0;
+
+  height: 100%;
+  width: 100%;
+
+  position: absolute;
+  overflow: hidden;
+}
+
 .App {
   text-align: center;
+
+  max-width: 100%;
+  height: 100%;
+
+  background: url(/src/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Menu {
+  float: left;
+
+  margin-left: 20px;
+  margin-top: 2%;
+
+  width: 22%;
+  height: 94%;
+
+  text-align: center;
+
+  background: url(/src/chalkboard.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.List {
+  margin-top: 105px;
+  margin-left: 20px;
+  margin-right: 12px;
+
+  height: calc(100% - 115px);
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+  word-wrap: normal;
+
+  font-family: "ChalkStyle";
+  color: whitesmoke;
 }
 
 .App-logo {
@@ -14,7 +74,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
