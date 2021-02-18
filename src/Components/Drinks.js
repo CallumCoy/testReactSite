@@ -13,14 +13,15 @@ export class Drinks extends Component {
         this.letter = props.letter
     }
     
-    GetDrinks(targ) {
-        const url = "https://www.thecocktaildb.com/api/json/v1/1/";
-        fetch(url + targ)
+    GetDrinks() {
+        const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=";
+        console.log("Messaging " + url + this.letter)
+        fetch(url + this.letter)
             .then(res => res.json())
             .then( (result) => {
                 this.setState({
                     isLoaded: true,
-                    items: result.items
+                    items: result.drinks.sort((a, b) => a.strAlcoholic.localeCompare(b.strAlcoholic))
                 });
             },
             (error) => {
@@ -33,20 +34,30 @@ export class Drinks extends Component {
     }
 
     render() {
-
-        return (<h2> {this.letter} </h2>)
         const { error, isLoaded, items } = this.state;
+
+        if (!isLoaded && this.letter === 'a'){
+            console.log('making a call')
+            this.GetDrinks()
+        }
+
         if (error) {
             return <div>Error: {error.message}</div>
         } else if (!isLoaded) {
-            return <div>Loading...</div>
+            return <h2><b> {this.letter.toUpperCase()} </b></h2>
         } else {
+
             return(
-                <ul>
-                    {items.map(item => (
-                        <li key={item}></li>
-                    ))}
-                </ul>
+                <div>
+                    <h2><b> {this.letter.toUpperCase()} </b></h2>
+                    <ul>
+                        {items.map(item => (
+                            <li key={item.idDrink}>
+                                <h4>{item.strDrink} {item.strAlcoholic}</h4>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             )
         }
     }
