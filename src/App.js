@@ -1,13 +1,10 @@
 import "./App.css";
+import ChalkBoard from "./Components/ChalkBoard.js"
 
 function App() {
   return (
     <div className="App">
-      <div className="Menu">
-        <div className="List">
-          <h1> Drinks </h1>
-        </div>
-      </div>
+      <ChalkBoard/>;
     </div>
   );
 }
