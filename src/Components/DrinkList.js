@@ -12,8 +12,10 @@ class DrinkList extends Component {
         var i = 'a'.charCodeAt(0)
         var end = 'z'.charCodeAt(0)
 
+        ans.push(<Drinks key="Nums" letter={[0,1,2,3,4,5,6,7,8,9]} />)
+
         while (i <= end){
-            ans.push(<Drinks letter={String.fromCharCode(i)} />)
+            ans.push(<Drinks key={[String.fromCharCode(i)]} letter={[String.fromCharCode(i)]} />)
             i ++
         } 
         return ans
