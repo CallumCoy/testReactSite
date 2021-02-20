@@ -8,14 +8,13 @@
 }
 
 .Menu {
-  float: left;
+  width: 22%;
+  height: 94%;
 
   margin-left: 20px;
   margin-top: 2%;
 
-  width: 22%;
-  height: 94%;
-
+  float: left;
   text-align: center;
 
   background: url(/src/chalkboard.png);
