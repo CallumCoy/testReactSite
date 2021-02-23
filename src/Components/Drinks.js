@@ -16,6 +16,12 @@ export class Drinks extends Component {
     this.cache = new Map();
 
     this.toggleShow = this.toggleShow.bind(this);
+    this.handleNewDrink = this.handleNewDrink.bind(this);
+  }
+
+  handleNewDrink(e) {
+    console.log("loggin e " + JSON.stringify(e, null, 2));
+    this.props.onSelectDrink(e);
   }
 
   GetDrinks() {
@@ -107,9 +113,15 @@ export class Drinks extends Component {
           <ul>
             {items.map((item) => (
               <li key={item.idDrink}>
-                <h4>
-                  {item.strDrink} {item.strAlcoholic}
-                </h4>
+                <a
+                  onClick={() => {
+                    this.handleNewDrink(item);
+                  }}
+                >
+                  <h4>
+                    {item.strDrink} {item.strAlcoholic}
+                  </h4>
+                </a>
               </li>
             ))}
           </ul>
