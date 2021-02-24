@@ -1,11 +1,10 @@
 .drinkInfo {
-  width: 40%;
-  height: 96%;
+  max-width: 500px;
 
   margin-left: 20px;
   margin-top: 2%;
 
-  padding: 10%, 10px;
+  padding: 10%, 2.5%;
 
   float: left;
   text-align: center;
@@ -13,4 +12,8 @@
   background-color: black;
 
   color: whitesmoke;
+}
+
+.drinkImage {
+  max-width: 95%;
 }

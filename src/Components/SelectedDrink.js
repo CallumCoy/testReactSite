@@ -12,8 +12,17 @@ export class SelectedDrink extends Component {
     if (selectedDrink) {
       return (
         <div id="drinkInfo" className="drinkInfo">
-          {selectedDrink.name} ({selectedDrink.alcoholic})<br></br>
-          <img src={selectedDrink.image}></img>
+          <h3>
+            <b>
+              {selectedDrink.name} {selectedDrink.alcoholic}
+            </b>
+          </h3>
+          <br></br>
+          <img
+            id="drinkImage"
+            className="drinkImage"
+            src={selectedDrink.image}
+          ></img>
           <br></br>
           Catagory: {selectedDrink.cat}
           <br></br>

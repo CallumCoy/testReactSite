@@ -5,7 +5,6 @@ export class Drinks extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hidden: true,
       searching: false,
       error: null,
       isLoaded: false,
@@ -67,7 +66,8 @@ export class Drinks extends Component {
   }
 
   render() {
-    const { hidden, searching, error, isLoaded, items } = this.state;
+    const { searching, error, isLoaded, items } = this.state;
+    const visibleLetter = this.props.show;
     const header = /[a-z]/.test(this.letter[0])
       ? this.letter[0].toUpperCase()
       : "0 - 9";
@@ -83,7 +83,16 @@ export class Drinks extends Component {
           Error: {error.message}
         </div>
       );
-    } else if (!isLoaded || hidden) {
+    } else if (this.props.close) {
+      this.setState({
+        hidden: true,
+      });
+    } else if (!isLoaded || visibleLetter != this.letter) {
+      if (visibleLetter == this.letter) {
+        console.log(!isLoaded);
+        console.log(visibleLetter != this.letter);
+      }
+
       return (
         <a onClick={this.toggleShow}>
           <h2>
@@ -110,37 +119,38 @@ export class Drinks extends Component {
               <b> {header} </b>
             </h2>
           </a>
-          <ul>
-            {items.map((item) => (
-              <li key={item.idDrink}>
-                <a
-                  onClick={() => {
-                    this.handleNewDrink(item);
-                  }}
-                >
-                  <h4>
-                    {item.strDrink} {item.strAlcoholic}
-                  </h4>
-                </a>
-              </li>
-            ))}
-          </ul>
+          {items.map((item) => (
+            <div>
+              <a
+                onClick={() => {
+                  this.handleNewDrink(item);
+                }}
+              >
+                <h3>
+                  {item.strDrink} ({item.strAlcoholic})
+                </h3>
+              </a>
+            </div>
+          ))}
         </div>
       );
     }
   }
 
   toggleShow() {
-    this.setState((state) => ({
-      hidden: !state.hidden,
-    }));
+    const visibleLetter = this.props.show;
 
-    if (this.state.hidden && !this.state.isLoaded && !this.state.searching) {
-      this.setState((state) => ({
-        searching: true,
-      }));
-      console.log("fetching: " + this.letter);
-      this.GetDrinks();
+    if (visibleLetter == this.letter) {
+      this.props.onSelectLetter("");
+    } else {
+      this.props.onSelectLetter(this.letter);
+      if (!this.state.isLoaded && !this.state.searching) {
+        this.setState((state) => ({
+          searching: true,
+        }));
+        console.log("fetching: " + this.letter);
+        this.GetDrinks();
+      }
     }
   }
 }
