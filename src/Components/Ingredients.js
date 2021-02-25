@@ -24,7 +24,7 @@ export class Ingredients extends Component {
     if (rightList) {
       return (
         <div>
-          <div id="ingredients" className="ingredients">
+          <div id="ingredients" className="ingredients border">
             <div id="ingredient" className="ingredient">
               {leftList.map((item) => (
                 <div>
@@ -45,7 +45,7 @@ export class Ingredients extends Component {
     } else {
       return (
         <div>
-          <div id="ingredients" className="ingredients">
+          <div id="ingredients" className="ingredients border">
             <div id="ingredient" className="ingredient">
               {leftList.map((item) => (
                 <div>

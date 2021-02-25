@@ -22,7 +22,7 @@ export class SelectedDrink extends Component {
           <br></br>
           <img
             id="drinkImage"
-            className="drinkImage"
+            className="drinkImage border"
             src={selectedDrink.image}
           ></img>
           <br></br>
@@ -31,7 +31,7 @@ export class SelectedDrink extends Component {
           <b>Glass Type:</b> {selectedDrink.glassType}
           <br></br>
           <h3>Instructions</h3>
-          <div id="instr" className="instr">
+          <div id="instr" className="instr border">
             {selectedDrink.instr}
           </div>
           <h3>Ingredients</h3>

@@ -9,6 +9,8 @@
 
 .Menu {
   width: 22%;
+  min-width: 275px;
+
   height: 94%;
 
   margin-left: 20px;

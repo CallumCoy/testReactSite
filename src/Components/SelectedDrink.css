@@ -7,11 +7,17 @@
   padding: 20px, 10px;
 
   float: left;
+
+  color: 3px solid #333333;
   text-align: center;
 
-  background-color: black;
+  border-radius: 10px;
 
-  color: whitesmoke;
+  display: inline-block;
+  border: 3px solid #333333;
+  border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+  background: #ffffff;
+  position: relative;
 }
 
 .drinkImage {
@@ -21,4 +27,13 @@
 h3 {
   margin-top: 4px;
   margin-bottom: 0;
+}
+
+.instr {
+  max-height: 75px;
+  max-width: 95%;
+
+  margin: auto;
+
+  overflow-y: scroll;
 }
