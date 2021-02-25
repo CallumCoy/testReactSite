@@ -1,6 +1,8 @@
 import "./SelectedDrink.css";
 import React, { Component } from "react";
 
+import { Ingredients } from "./Ingredients.js";
+
 export class SelectedDrink extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +16,7 @@ export class SelectedDrink extends Component {
         <div id="drinkInfo" className="drinkInfo">
           <h3>
             <b>
-              {selectedDrink.name} {selectedDrink.alcoholic}
+              {selectedDrink.name} ({selectedDrink.alcoholic})
             </b>
           </h3>
           <br></br>
@@ -29,6 +31,8 @@ export class SelectedDrink extends Component {
           Glass Type: {selectedDrink.glassType}
           <br></br>
           Instructions: {selectedDrink.instr}
+          <br></br>
+          <Ingredients ingredients={selectedDrink.ingredients} />
         </div>
       );
     } else {
