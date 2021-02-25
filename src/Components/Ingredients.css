@@ -1,4 +1,7 @@
 .ingredients {
+  margin: auto;
+  width: 90%;
+
   max-height: 75px;
   overflow-y: scroll;
 }

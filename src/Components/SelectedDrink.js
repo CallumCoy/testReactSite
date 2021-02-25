@@ -26,12 +26,15 @@ export class SelectedDrink extends Component {
             src={selectedDrink.image}
           ></img>
           <br></br>
-          Catagory: {selectedDrink.cat}
+          <b>Catagory:</b> {selectedDrink.cat}
           <br></br>
-          Glass Type: {selectedDrink.glassType}
+          <b>Glass Type:</b> {selectedDrink.glassType}
           <br></br>
-          Instructions: {selectedDrink.instr}
-          <br></br>
+          <h3>Instructions</h3>
+          <div id="instr" className="instr">
+            {selectedDrink.instr}
+          </div>
+          <h3>Ingredients</h3>
           <Ingredients ingredients={selectedDrink.ingredients} />
         </div>
       );

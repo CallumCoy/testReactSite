@@ -72,7 +72,9 @@ class Site extends Component {
       [drink.strIngredient14, drink.strMeasure14],
       [drink.strIngredient15, drink.strMeasure15],
     ];
-    return ingredients.filter((element) => element[0] != null);
+    return ingredients.filter(
+      (element) => element[0] != null && element[0] != ""
+    );
   }
 }
 
