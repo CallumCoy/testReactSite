@@ -18,16 +18,28 @@ export class Ingredients extends Component {
     const leftList = ingredients.splice(-half);
     const rightList = ingredients.splice(0, half);
 
+    console.log(leftList);
+    console.log(rightList);
+
     if (rightList) {
       return (
         <div>
           <h3>Ingredients</h3>
           <div id="ingredients" className="ingredients">
-            {leftList.map((item) => (
-              <div id="ingredient" className="ingredient">
-                {item[0]} : {item[1]}
-              </div>
-            ))}
+            <div id="ingredient" className="ingredient">
+              {leftList.map((item) => (
+                <div>
+                  {item[0]} : {item[1]}
+                </div>
+              ))}
+            </div>
+            <div id="ingredient" className="ingredient">
+              {rightList.map((item) => (
+                <div>
+                  {item[0]} : {item[1]}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       );
@@ -36,18 +48,13 @@ export class Ingredients extends Component {
         <div>
           <h3>Ingredients</h3>
           <div id="ingredients" className="ingredients">
-            {leftList.map((item) => (
-              <div id="ingredient" className="ingredient">
-                {item[0]} : {item[1]}
-              </div>
-            ))}
-          </div>
-          <div>
-            {leftList.map((item) => (
-              <div id="ingredient" className="ingredient">
-                {item[0]} : {item[1]}
-              </div>
-            ))}
+            <div id="ingredient" className="ingredient">
+              {leftList.map((item) => (
+                <div>
+                  {item[0]} : {item[1]}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       );
